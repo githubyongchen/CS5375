@@ -1,11 +1,13 @@
 CC = gcc
-OBJ = cachesim 
+EXE = cachesim.exe
 
-$(OBJ):$(OBJ).o
+%.exe : %.o
 	$(CC) -o $@ $^
 
-%.o:%.c
+%.o : %.c
 	$(CC) -c -o $@ $^
 
+all: $(EXE)
+
 clean: 
-	rm -f $(OBJ) *.o
+	rm -f *.exe *.o
