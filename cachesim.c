@@ -14,6 +14,7 @@
 
 int main(int argc, char *argv[])
 {
+    printf("Hi");
     if (argc != 3) {
         printf("Usage: %s <direct> <trace file name>\n", argv[0]);
         return 1;
@@ -48,11 +49,13 @@ int main(int argc, char *argv[])
     /* Opening the memory trace file */
     fp = fopen(trace_file_name, "r");
 
-    if (strncmp(argv[1], "direct", 6)==0) { /* Simulating direct-mapped cache */
+    if (strncmp(argv[1], "direct", 6)==0) { 
+        /* Simulating direct-mapped cache */
         /* Read the memory request address and access the cache */
         while (fgets(mem_request, 20, fp)!= NULL) {
             address = convert_address(mem_request);
             direct_mapped_cache_access(&d_cache, address);
+         //   printf("Looping");
         }
         /*Print out the results*/
         printf("\n==================================\n");
