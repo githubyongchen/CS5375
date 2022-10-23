@@ -11,6 +11,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
+
 char *trace_file_name;
 
 uint64_t convert_address(char memory_addr[])
