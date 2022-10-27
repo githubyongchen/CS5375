@@ -95,7 +95,7 @@ int isDataExistsInCacheL1(uint64_t address, int nway, struct L1Cache *l1)
     }
     return 0;
 }
-int isDataExistsInCacheL2(uint64_t address, int nway, struct L1Cache *l2)
+int isDataExistsInCacheL2(uint64_t address, int nway, struct L2Cache *l2)
 {
     uint64_t block_addr = address >> (unsigned)log2(64);
     int setNumber = block_addr % 2048;
@@ -158,7 +158,7 @@ void insertDataInL1Cache(uint64_t address, int nway, struct L1Cache *l1)
         l1->tag_field[randomIndex] = tag;
     }
 }
-void insertDataInL2Cache(uint64_t address, int nway, struct L1Cache *l2)
+void insertDataInL2Cache(uint64_t address, int nway, struct L2Cache *l2)
 {
 
     uint64_t block_addr = address >> (unsigned)log2(64);
