@@ -112,7 +112,7 @@ uint64_t convert_address(char memory_addr[])
 
 void direct_mapped_cache_access(struct direct_mapped_cache *cache, uint64_t address)
 {
-    uint64_t block_addr = address >> log2(BLOCK_SIZE);
+    uint64_t block_addr = address >> (unsigned)log2(BLOCK_SIZE);
     uint64_t index = block_addr % NUM_BLOCKS;
     uint64_t tag = block_addr >> (unsigned)log2(NUM_BLOCKS);
 
