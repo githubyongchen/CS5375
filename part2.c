@@ -201,7 +201,7 @@ void performNwayAssociativeMappingforPart1()
     switch (ca)
     {
     case 1:
-        printf("\n\n******* STARTING EXECUTION FOR 16 BYTES cache line size\n\n********");
+        printf("\n\n====== STARTING EXECUTION FOR 16 BYTES cache line size ========== \n");
         totalNumberOfBlocks = (int)cacheSize / 16;
         switch (selection)
         {
@@ -223,7 +223,7 @@ void performNwayAssociativeMappingforPart1()
 
         break;
     case 2:
-        printf("\n\n******* STARTING EXECUTION FOR 32 BYTES cache line size\n\n********");
+        printf("\n\n====== STARTING EXECUTION FOR 32 BYTES cache line size ========== \n");
         totalNumberOfBlocks = (int)cacheSize / 32;
         switch (selection)
         {
@@ -245,7 +245,8 @@ void performNwayAssociativeMappingforPart1()
 
         break;
     case 3:
-        printf("\n\n******* STARTING EXECUTION FOR 128 BYTES cache line size\n\n********");
+        printf("\n\n====== STARTING EXECUTION FOR 128 BYTES cache line size ========== \n");
+        totalNumberOfBlocks = (int)cacheSize / 128;
         switch (selection)
         {
         case 8:
@@ -296,7 +297,7 @@ void performNwayAssociativeMappingforPart2()
         {
         case 1:
             totalNumberOfBlocks = (int)cacheSize / 64;
-            printf("\n\n******* STARTING EXECUTION OF  16kb cache size and 64 bytes cache line size/block size****\n");
+            printf("\n\n====== STARTING EXECUTION OF  16kb cache size and 64 bytes cache line size/block size=======\n");
             switch (selection)
             {
             case 8:
@@ -318,7 +319,7 @@ void performNwayAssociativeMappingforPart2()
 
             break;
         case 2:
-            printf("\n\n******* STARTING EXECUTION OF  32kb cache size and 64 bytes cache line size/block size****\n");
+            printf("\n\n====== STARTING EXECUTION OF  32kb cache size and 64 bytes cache line size/block size=======\n");
             cacheSize = 32 * 1024;
             totalNumberOfBlocks = (int)cacheSize / 64;
             switch (selection)
@@ -341,7 +342,7 @@ void performNwayAssociativeMappingforPart2()
             }
             break;
         case 3:
-            printf("\n\n******* STARTING EXECUTION OF  64kb cache size and 64 bytes cache line size/block size****\n");
+            printf("\n\n====== STARTING EXECUTION OF  64kb cache size and 64 bytes cache line size/block size=======\n");
             cacheSize = 64 * 1024;
             totalNumberOfBlocks = (int)cacheSize / 64;
             switch (selection)
