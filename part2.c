@@ -291,12 +291,12 @@ void performNwayAssociativeMappingforPart2()
     int selection;
     printf("Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: ");
     scanf("%d", &selection);
-    switch (ca)
+ 
         switch (ca)
         {
         case 1:
             totalNumberOfBlocks = (int)cacheSize / 64;
-            printf("\n\n******* STARTING EXECUTION OF  16kb cache size and 64 cache line size/block size \n\n********");
+            printf("\n\n******* STARTING EXECUTION OF  16kb cache size and 64 bytes cache line size/block size****\n");
             switch (selection)
             {
             case 8:
@@ -318,7 +318,7 @@ void performNwayAssociativeMappingforPart2()
 
             break;
         case 2:
-            printf("\n\n******* STARTING EXECUTION OF  32kb cache size and 64 cache line size/block size \n\n********");
+            printf("\n\n******* STARTING EXECUTION OF  32kb cache size and 64 bytes cache line size/block size****\n");
             cacheSize = 32 * 1024;
             totalNumberOfBlocks = (int)cacheSize / 64;
             switch (selection)
@@ -341,7 +341,7 @@ void performNwayAssociativeMappingforPart2()
             }
             break;
         case 3:
-            printf("\n\n******* STARTING EXECUTION OF  64kb cache size and 64 cache line size/block size \n\n********");
+            printf("\n\n******* STARTING EXECUTION OF  64kb cache size and 64 bytes cache line size/block size****\n");
             cacheSize = 64 * 1024;
             totalNumberOfBlocks = (int)cacheSize / 64;
             switch (selection)
