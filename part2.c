@@ -173,8 +173,8 @@ void readFileAndDoCacheHitOrMiss(int totalNumberOfBlocks, int nway, int blockSiz
     printf("==================================\n");
     printf("Cache Hits:    %d\n", d_cache.hits);
     printf("Cache Misses:  %d\n", d_cache.misses);
-    printf("Cache HIT Rate : %0.9f\n", ((float)d_cache.hits / (float)(d_cache.hits + d_cache.misses)));
-    printf("Cache MISS Rate : %0.9f\n", ((float)d_cache.misses / (float)(d_cache.hits + d_cache.misses)));
+    printf("Cache Hit Rate : %0.9f%%\n", ((float)d_cache.hits / (float)(d_cache.hits + d_cache.misses))*100);
+    printf("Cache Miss Rate : %0.9f%%\n", ((float)d_cache.misses / (float)(d_cache.hits + d_cache.misses))*100);
     printf("\n");
     fclose(fp);
 }

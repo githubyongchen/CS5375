@@ -75,7 +75,6 @@ uint64_t convert_address(char memory_addr[])
     return binary;
 }
 
-
 int isDataExistsInCacheL1(uint64_t address, int nway, struct L1Cache *l1)
 {
     uint64_t block_addr = address >> (unsigned)log2(64);
@@ -204,7 +203,6 @@ void insertDataInL2Cache(uint64_t address, int nway, struct L2Cache *l2)
     }
 }
 
-
 int main(int argc, char *argv[])
 {
     FILE *fp;
@@ -244,8 +242,8 @@ int main(int argc, char *argv[])
         while (fgets(mem_request, 20, fp) != NULL)
         {
             address = convert_address(mem_request);
-            int dataInL1 = isDataExistsInCacheL1(address,l1nway,&l1);
-            if(dataInL1==1)
+            int dataInL1 = isDataExistsInCacheL1(address, l1nway, &l1);
+            if (dataInL1 == 1)
             {
                 l1.hits++;
                 l2.hits++;
@@ -253,31 +251,34 @@ int main(int argc, char *argv[])
             else
             {
                 l1.misses++;
-                int dataInL2 = isDataExistsInCacheL2(address,l2nway,&l2);
-                if(dataInL2)
+                int dataInL2 = isDataExistsInCacheL2(address, l2nway, &l2);
+                if (dataInL2)
                 {
-                    l2.hits+=1;
-
+                    l2.hits += 1;
                 }
                 else
                 {
                     l2.misses++;
-                    insertDataInL2Cache(address,l2nway,&l2);
+                    insertDataInL2Cache(address, l2nway, &l2);
                 }
-                insertDataInL1Cache(address,l1nway,&l1);
+                insertDataInL1Cache(address, l1nway, &l1);
             }
         }
         printf("\n==================================\n");
-        printf("Cache type:    Direct-Mapped Cache for l1\n");
+        printf("Cache type:     l1\n");
         printf("==================================\n");
         printf("Cache Hits:    %d\n", l1.hits);
         printf("Cache Misses:  %d\n", l1.misses);
+        printf("Cache Hit Rate : %0.9f%%\n", ((float)l1.hits / (float)(l1.hits + l1.misses)) * 100);
+        printf("Cache Miss Rate : %0.9f%%\n", ((float)l1.misses / (float)(l1.hits + l1.misses)) * 100);
         printf("\n");
-          printf("\n==================================\n");
-        printf("Cache type:    Direct-Mapped Cache for l2\n");
+        printf("\n==================================\n");
+        printf("Cache type:     l2\n");
         printf("==================================\n");
         printf("Cache Hits:    %d\n", l2.hits);
         printf("Cache Misses:  %d\n", l2.misses);
+        printf("Cache Hit Rate : %0.9f%%\n", ((float)l2.hits / (float)(l2.hits + l2.misses)) * 100);
+        printf("Cache Miss Rate : %0.9f%%\n", ((float)l2.misses / (float)(l2.hits + l2.misses)) * 100);
         printf("\n");
     }
 
