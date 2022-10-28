@@ -381,7 +381,7 @@ int main(int argc, char *argv[])
 {
     trace_file_name = argv[2];
     int switchCase = 0;
-    printf("Select 1 to  execute part1 or 2 to part2 :");
+    printf("Select 1 to  execute Question 1 or 2 to Question 2 :");
     scanf("%d", &switchCase);
 
     switch (switchCase)
