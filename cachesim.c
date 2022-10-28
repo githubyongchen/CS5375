@@ -63,7 +63,9 @@ int main(int argc, char *argv[])
         printf("==================================\n");
         printf("Cache Hits:    %d\n", d_cache.hits);
         printf("Cache Misses:  %d\n", d_cache.misses);
-        printf("\n");
+        printf("Cache Hit Rate:    %f\n", (float)d_cache.hits / ((float)d_cache.hits + (float)d_cache.misses));
+        printf("Cache Hit Rate:    %f\n", (float)d_cache.misses / ((float)d_cache.hits + (float)d_cache.misses));
+        
     }
 
     fclose(fp);

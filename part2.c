@@ -92,7 +92,7 @@ void readFileAndDoCacheHitOrMiss(int totalNumberOfBlocks, int nway, int blockSiz
     fp = fopen(trace_file_name, "r");
     uint64_t address;
 
-    printf("%s IS THE FILENAME", trace_file_name);
+   // printf("%s IS THE FILENAME", trace_file_name);
     while (fgets(mem_request, 20, fp) != NULL)
     {
         // printf("%s", mem_request);
@@ -106,9 +106,6 @@ void readFileAndDoCacheHitOrMiss(int totalNumberOfBlocks, int nway, int blockSiz
 
         int hitMade = 0;
         int isAnySpaceEmpty = 0;
-        // printf("nway is %d, The total nu,ber of blocks is %d, the number of sets are : %d,\n this address goes to setnumber : %d WITH start index : %d, end index %d",
-        //  nway,totalNumberOfBlocks,numberOfSets,setNumber,startIndex,endIndex);
-        //  printf("\n This is for address %s , start index %d, endIndex index %d\n", mem_request, startIndex, startIndex + nway - 1);
         int nwayTemp = nway;
         int loopIndex = startIndex;
         int i = 0;
@@ -171,8 +168,8 @@ void readFileAndDoCacheHitOrMiss(int totalNumberOfBlocks, int nway, int blockSiz
             }
         }
     }
-    printf("\n\n\n==================================\n");
-    printf("Cache type:n-Mapped Cache\n with no of rows: %d, number of sets:  %d", totalNumberOfBlocks, numberOfSets);
+    // printf("\n\n\n==================================\n");
+    // printf("Cache type:n-Mapped Cache\n with no of rows: %d, number of sets:  %d", totalNumberOfBlocks, numberOfSets);
     printf("==================================\n");
     printf("Cache Hits:    %d\n", d_cache.hits);
     printf("Cache Misses:  %d\n", d_cache.misses);
@@ -184,80 +181,216 @@ void readFileAndDoCacheHitOrMiss(int totalNumberOfBlocks, int nway, int blockSiz
 
 void startProcess(int cacheSize, int totalNumberOfBlocks, int nway, int blockSize)
 {
-    printf("The below output is for cache with %dKB and %d bytes and %d way associative ", cacheSize, blockSize, nway);
+    // printf("The below output is for cache with %dKB and %d bytes and %d way associative ", cacheSize, blockSize, nway);
     readFileAndDoCacheHitOrMiss(totalNumberOfBlocks, nway, blockSize);
 }
 
 void performNwayAssociativeMappingforPart1()
 {
-    // printf("jhh");
-    long cacheSize = 32 * 1024;
+    int continueSelect = 0;
+    do
+    {
+         long cacheSize = 32 * 1024;
     int totalNumberOfBlocks = 0;
-    // For blockSize of 16 bytes
-    printf("\n\n******* STARTING A NEW ONE 16 cache line\n\n********");
-    totalNumberOfBlocks = (int)cacheSize / 16;
-    startProcess(32, totalNumberOfBlocks, 8, 16);
-    startProcess(32, totalNumberOfBlocks, 4, 16);
-    startProcess(32, totalNumberOfBlocks, 2, 16);
-    startProcess(32, totalNumberOfBlocks, totalNumberOfBlocks, 16);
-    printf("\n\n******* STARTING A NEW ONE 32 cache line\n\n********");
-    totalNumberOfBlocks = (int)cacheSize / 32;
-    startProcess(32, totalNumberOfBlocks, 8, 32);
-    startProcess(32, totalNumberOfBlocks, 4, 32);
-    startProcess(32, totalNumberOfBlocks, 2, 32);
-    startProcess(32, totalNumberOfBlocks, totalNumberOfBlocks, 32);
-    printf("\n\n******* STARTING A NEW ONE for 128 cache line\n\n********");
-    totalNumberOfBlocks = (int)cacheSize / 128;
-    startProcess(32, totalNumberOfBlocks, 8, 128);
-    startProcess(32, totalNumberOfBlocks, 4, 128);
-    startProcess(32, totalNumberOfBlocks, 2, 128);
-    startProcess(32, totalNumberOfBlocks, totalNumberOfBlocks, 128);
+    int ca = 0;
+    printf("For execution over 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : \n");
+    scanf("%d", &ca);
+    int selection = 0;
+    printf("Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: ");
+    scanf("%d", &selection);
+    switch (ca)
+    {
+    case 1:
+        printf("\n\n******* STARTING EXECUTION FOR 16 BYTES cache line size\n\n********");
+        totalNumberOfBlocks = (int)cacheSize / 16;
+        switch (selection)
+        {
+        case 8:
+            startProcess(32, totalNumberOfBlocks, 8, 16);
+            break;
+        case 4:
+            startProcess(32, totalNumberOfBlocks, 4, 16);
+            break;
+        case 2:
+            startProcess(32, totalNumberOfBlocks, 2, 16);
+            break;
+        case 1:
+            startProcess(32, totalNumberOfBlocks, totalNumberOfBlocks, 16);
+            break;
+        default:
+            break;
+        }
 
-    // For blockSize of 32 bytes
+        break;
+    case 2:
+        printf("\n\n******* STARTING EXECUTION FOR 32 BYTES cache line size\n\n********");
+        totalNumberOfBlocks = (int)cacheSize / 32;
+        switch (selection)
+        {
+        case 8:
+            startProcess(32, totalNumberOfBlocks, 8, 32);
+            break;
+        case 4:
+            startProcess(32, totalNumberOfBlocks, 4, 32);
+            break;
+        case 2:
+            startProcess(32, totalNumberOfBlocks, 2, 32);
+            break;
+        case 1:
+            startProcess(32, totalNumberOfBlocks, totalNumberOfBlocks, 32);
+            break;
+        default:
+            break;
+        }
 
-    // For blockSize of 128bytes
+        break;
+    case 3:
+        printf("\n\n******* STARTING EXECUTION FOR 128 BYTES cache line size\n\n********");
+        switch (selection)
+        {
+        case 8:
+            startProcess(32, totalNumberOfBlocks, 8, 128);
+            break;
+        case 4:
+            startProcess(32, totalNumberOfBlocks, 4, 128);
+            break;
+        case 2:
+            startProcess(32, totalNumberOfBlocks, 2, 128);
+            break;
+        case 1:
+            startProcess(32, totalNumberOfBlocks, totalNumberOfBlocks, 1628);
+            break;
+        default:
+            break;
+        }
+
+        break;
+    }
+    printf("===========XXXX EXECUTION ENDED XXXX ==========\n");
+
+
+
+        printf("Select 1 to continue the test cases, any other to exit: ");
+        scanf("%d",&continueSelect);
+    } while (continueSelect==1);
+    
+
+   
 }
 void performNwayAssociativeMappingforPart2()
 {
-    // printf("jhh");
-    long cacheSize = 16 * 1024;
+
+     int continueSelect = 0;
+    do
+    {
+ long cacheSize = 16 * 1024;
     int totalNumberOfBlocks = 0;
-    totalNumberOfBlocks = (int)cacheSize / 64;
-    printf("\n\n******* STARTING A NEW ONE WITH 16kb cache size and 64 line size/block size \n\n********");
-    startProcess(16, totalNumberOfBlocks, 8, 64);
-    startProcess(16, totalNumberOfBlocks, 4, 64);
-    startProcess(16, totalNumberOfBlocks, 2, 64);
-    startProcess(16, totalNumberOfBlocks, totalNumberOfBlocks, 64);
-    printf("\n\n******* STARTING A NEW ONE WITH 32kb cache size and 64 line size/block size \n\n********");
-    cacheSize = 32 * 1024;
-    totalNumberOfBlocks = (int)cacheSize / 64;
-    startProcess(32, totalNumberOfBlocks, 8, 64);
-    startProcess(32, totalNumberOfBlocks, 4, 64);
-    startProcess(32, totalNumberOfBlocks, 2, 64);
-    startProcess(32, totalNumberOfBlocks, totalNumberOfBlocks, 64);
-    printf("\n\n******* STARTING A NEW ONE WITH 64kb cache size and 64 line size/block size \n\n********");
-    cacheSize = 64 * 1024;
-    startProcess(64, totalNumberOfBlocks, 8, 64);
-    startProcess(64, totalNumberOfBlocks, 4, 64);
-    startProcess(64, totalNumberOfBlocks, 2, 64);
-    startProcess(64, totalNumberOfBlocks, totalNumberOfBlocks, 64);
+    int ca = 0;
+    printf("For execution over 64Bytes Cache line size ,Click 1 for 16KB Cachesize, 2 for 32KB Cachesize, 3 for 64KB Cachesize \n  \n");
+    scanf("%d", &ca);
+    int selection;
+    printf("Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: ");
+    scanf("%d", &selection);
+    switch (ca)
+        switch (ca)
+        {
+        case 1:
+            totalNumberOfBlocks = (int)cacheSize / 64;
+            printf("\n\n******* STARTING EXECUTION OF  16kb cache size and 64 cache line size/block size \n\n********");
+            switch (selection)
+            {
+            case 8:
+                startProcess(16, totalNumberOfBlocks, 8, 64);
+                break;
+            case 4:
+                startProcess(16, totalNumberOfBlocks, 4, 64);
+                break;
+            case 2:
+                startProcess(16, totalNumberOfBlocks, 2, 64);
+                break;
+            case 1:
+                startProcess(16, totalNumberOfBlocks, totalNumberOfBlocks, 64);
+                break;
+
+            default:
+                break;
+            }
+
+            break;
+        case 2:
+            printf("\n\n******* STARTING EXECUTION OF  32kb cache size and 64 cache line size/block size \n\n********");
+            cacheSize = 32 * 1024;
+            totalNumberOfBlocks = (int)cacheSize / 64;
+            switch (selection)
+            {
+            case 8:
+                startProcess(32, totalNumberOfBlocks, 8, 64);
+                break;
+            case 4:
+                startProcess(32, totalNumberOfBlocks, 4, 64);
+                break;
+            case 2:
+                startProcess(32, totalNumberOfBlocks, 2, 64);
+                break;
+            case 1:
+                startProcess(32, totalNumberOfBlocks, totalNumberOfBlocks, 64);
+                break;
+
+            default:
+                break;
+            }
+            break;
+        case 3:
+            printf("\n\n******* STARTING EXECUTION OF  64kb cache size and 64 cache line size/block size \n\n********");
+            cacheSize = 64 * 1024;
+            totalNumberOfBlocks = (int)cacheSize / 64;
+            switch (selection)
+            {
+            case 8:
+                startProcess(64, totalNumberOfBlocks, 8, 64);
+                break;
+            case 4:
+                startProcess(64, totalNumberOfBlocks, 4, 64);
+                break;
+            case 2:
+                startProcess(64, totalNumberOfBlocks, 2, 64);
+                break;
+            case 1:
+                startProcess(64, totalNumberOfBlocks, totalNumberOfBlocks, 64);
+                break;
+
+            default:
+                break;
+            }
+            break;
+
+        default:
+            break;
+        }
+
+
+        printf("Select 1 to continue the test cases, any other to exit: ");
+        scanf("%d",&continueSelect);
+    } while (continueSelect==1);
+
+
+   
 }
 
 int main(int argc, char *argv[])
 {
     trace_file_name = argv[2];
     int switchCase = 0;
-    printf("Press 0 for fully associative or 1 the nway associative");
+    printf("Select 1 to  execute part1 or 2 to part2 :");
     scanf("%d", &switchCase);
+
     switch (switchCase)
     {
-    case 0:
-        /* code */
+    case 1:
+        performNwayAssociativeMappingforPart1();
         break;
 
-    default:
-        performNwayAssociativeMappingforPart1();
-        printf("######################NEW ONE ###############################");
+    case 2:
         performNwayAssociativeMappingforPart2();
         break;
     }
