@@ -77,39 +77,39 @@ uint64_t convert_address(char memory_addr[])
 /* Conversion of the physical 32-bit address in the trace file to the  form of "binary" \\
  * (a uint64 that can have bitwise operations on it) */
 {
-    uint64_t binary1 = 0;
+    uint64_t binary = 0;
     int i = 0;
 
     while (memory_addr[i] != '\n') {
         if (memory_addr[i] <= '9' && memory_addr[i] >= '0') {
-            binary1 = (binary1*16) + (memory_addr[i] - '0');
+            binary = (binary*16) + (memory_addr[i] - '0');
         } else {
             if(memory_addr[i] == 'a' || memory_addr[i] == 'A') {
-                binary1 = (binary1*16) + 10;
+                binary = (binary*16) + 10;
             }
             if(memory_addr[i] == 'b' || memory_addr[i] == 'B') {
-                binary1 = (binary1*16) + 11;
+                binary = (binary*16) + 11;
             }
             if(memory_addr[i] == 'c' || memory_addr[i] == 'C') {
-                binary1 = (binary1*16) + 12;
+                binary = (binary*16) + 12;
             }
             if(memory_addr[i] == 'd' || memory_addr[i] == 'D') {
-                binary1 = (binary1*16) + 13;
+                binary = (binary*16) + 13;
             }
             if(memory_addr[i] == 'e' || memory_addr[i] == 'E') {
-                binary1 = (binary1*16) + 14;
+                binary = (binary*16) + 14;
             }
             if(memory_addr[i] == 'f' || memory_addr[i] == 'F') {
-                binary1 = (binary1*16) + 15;
+                binary = (binary*16) + 15;
             }
         }
         i++;
     }
 
 #ifdef DBG
-    printf("%s converted to %llu\n", memory_addr, binary1);
+    printf("%s converted to %llu\n", memory_addr, binary);
 #endif
-    return binary1;
+    return binary;
 }
 
 void direct_mapped_cache_access(struct direct_mapped_cache *cache, uint64_t address)
