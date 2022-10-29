@@ -27,7 +27,7 @@ struct L2Cache
 };
 
 uint64_t convert_address(char memory_addr[])
-/* Converts the physical 32-bit address in the trace file to the "binary" \\
+/* Conversion of physical 32-bit address in the trace file to the "binary" \\
  * (a uint64 that can have bitwise operations on it) */
 {
     uint64_t binary = 0;
@@ -264,21 +264,21 @@ int main(int argc, char *argv[])
                 insertDataInL1Cache(address, l1nway, &l1);
             }
         }
-        printf("\n==================================\n");
+        printf("\n**********************************\n");
         printf("Cache type:     l1\n");
-        printf("==================================\n");
-        printf("Cache Hits:    %d\n", l1.hits);
-        printf("Cache Misses:  %d\n", l1.misses);
-        printf("Cache Hit Rate : %0.3f%%\n", ((float)l1.hits / (float)(l1.hits + l1.misses)) * 100);
-        printf("Cache Miss Rate : %0.3f%%\n", ((float)l1.misses / (float)(l1.hits + l1.misses)) * 100);
+        printf("************************************n");
+        printf("Nof_Cache Hits:    %d\n", l1.hits);
+        printf("Nof_Cache Misses:  %d\n", l1.misses);
+        printf("Nof_Cache Hit Rate : %0.3f%%\n", ((float)l1.hits / (float)(l1.hits + l1.misses)) * 100);
+        printf("Nof_Cache Miss Rate : %0.3f%%\n", ((float)l1.misses / (float)(l1.hits + l1.misses)) * 100);
         printf("\n");
-        printf("\n==================================\n");
+        printf("\n+++++++++++++++++++++++++++++++\n");
         printf("Cache type:     l2\n");
-        printf("==================================\n");
-        printf("Cache Hits:    %d\n", l2.hits);
-        printf("Cache Misses:  %d\n", l2.misses);
-        printf("Cache Hit Rate : %0.3f%%\n", ((float)l2.hits / (float)(l2.hits + l2.misses)) * 100);
-        printf("Cache Miss Rate : %0.3f%%\n", ((float)l2.misses / (float)(l2.hits + l2.misses)) * 100);
+        printf("++++++++++++++++++++++++++++++++++\n");
+        printf("Nof_Cache Hits:    %d\n", l2.hits);
+        printf("Nof_Cache Misses:  %d\n", l2.misses);
+        printf("Nof_Cache Hit Rate : %0.3f%%\n", ((float)l2.hits / (float)(l2.hits + l2.misses)) * 100);
+        printf("Nof_Cache Miss Rate : %0.3f%%\n", ((float)l2.misses / (float)(l2.hits + l2.misses)) * 100);
         printf("\n");
     }
 
