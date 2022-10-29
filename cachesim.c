@@ -61,10 +61,10 @@ int main(int argc, char *argv[])
         printf("\n==================================\n");
         printf("The Cache type:    Direct-Mapped Cache\n");
         printf("*************************************\n");
-        printf("Total_Cache_Hits:    %d\n", dir_cache.hits);
-        printf("Total_Cache_Misses:  %d\n", dir_cache.misses);
-        printf("Total_Cache_Hit-Rate:    %f%%\n", ((float)dir_cache.hits / ((float)dir_cache.hits + (float)dir_cache.misses)) *100);
-        printf("Total_Miss-Rate:    %f%%\n", ((float)dir_cache.misses / ((float)dir_cache.hits + (float)dir_cache.misses))*100);
+        printf("Number_of__Cache_Hits:    %d\n", dir_cache.hits);
+        printf("Number_of_Cache_Misses:  %d\n", dir_cache.misses);
+        printf("Number_of_Cache_Hit-Rate:    %f%%\n", ((float)dir_cache.hits / ((float)dir_cache.hits + (float)dir_cache.misses)) *100);
+        printf("Number_of_Miss-Rate:    %f%%\n", ((float)dir_cache.misses / ((float)dir_cache.hits + (float)dir_cache.misses))*100);
         
     }
 
