@@ -76,16 +76,16 @@ void readFileAndDoCacheHitOrMiss(int totalNumberOfBlocks, int nway, int blockSiz
         int hits;                                  /* Hit count */
         int misses;                                /* Miss count */
     };
-    struct direct_mapped_cache d_cache;
+    struct direct_mapped_cache dir_cache;
     /* Initialization */
     for (int i = 0; i < totalNumberOfBlocks; i++)
     {
-        d_cache.valid_field[i] = 0;
-        d_cache.dirty_field[i] = 0;
-        d_cache.tag_field[i] = 0;
+        dir_cache.valid_field[i] = 0;
+        dir_cache.dirty_field[i] = 0;
+        dir_cache.tag_field[i] = 0;
     }
-    d_cache.hits = 0;
-    d_cache.misses = 0;
+    dir_cache.hits = 0;
+    dir_cache.misses = 0;
 
     char mem_request[20];
     FILE *fp;
@@ -119,13 +119,13 @@ void readFileAndDoCacheHitOrMiss(int totalNumberOfBlocks, int nway, int blockSiz
         {
             i++;
             //  printf("%d ***********", loopIndex);
-            if (d_cache.valid_field[loopIndex] && d_cache.tag_field[loopIndex] == tag)
+            if (dir_cache.valid_field[loopIndex] && dir_cache.tag_field[loopIndex] == tag)
             { /* Cache hit */
-                d_cache.hits += 1;
+                dir_cache.hits += 1;
                 hitMade = 1;
                 break;
             }
-            if (d_cache.valid_field[loopIndex] == 0)
+            if (dir_cache.valid_field[loopIndex] == 0)
             {
                 isAnySpaceEmpty = 1;
             }
@@ -137,7 +137,7 @@ void readFileAndDoCacheHitOrMiss(int totalNumberOfBlocks, int nway, int blockSiz
         if (hitMade == 0)
         {
             //   printf("Hit was zero for the index %d", hitMade);
-            d_cache.misses += 1;
+            dir_cache.misses += 1;
             if (isAnySpaceEmpty > 0)
             {
                 //  printf("Going on empty");
@@ -145,11 +145,11 @@ void readFileAndDoCacheHitOrMiss(int totalNumberOfBlocks, int nway, int blockSiz
                 loopIndex = startIndex;
                 while (nwayTemp > 0)
                 {
-                    if (d_cache.valid_field[loopIndex] == 0)
+                    if (dir_cache.valid_field[loopIndex] == 0)
                     {
                         //  printf("\nInserting at the index : %d ", loopIndex);
-                        d_cache.valid_field[loopIndex] = 1;
-                        d_cache.tag_field[loopIndex] = tag;
+                        dir_cache.valid_field[loopIndex] = 1;
+                        dir_cache.tag_field[loopIndex] = tag;
                         break;
                     }
 
@@ -163,18 +163,18 @@ void readFileAndDoCacheHitOrMiss(int totalNumberOfBlocks, int nway, int blockSiz
 
                 int randomIndex = (rand() % (endIndex - startIndex + 1)) + startIndex;
                 //   printf("Picking a rand variable %d",randomIndex);
-                d_cache.valid_field[randomIndex] = 1;
-                d_cache.tag_field[randomIndex] = tag;
+                dir_cache.valid_field[randomIndex] = 1;
+                dir_cache.tag_field[randomIndex] = tag;
             }
         }
     }
     // printf("\n\n\n==================================\n");
     // printf("Cache type:n-Mapped Cache\n with no of rows: %d, number of sets:  %d", totalNumberOfBlocks, numberOfSets);
     printf("==================================\n");
-    printf("Cache Hits:    %d\n", d_cache.hits);
-    printf("Cache Misses:  %d\n", d_cache.misses);
-    printf("Cache Hit Rate : %0.1f%%\n", ((float)d_cache.hits / (float)(d_cache.hits + d_cache.misses))*100);
-    printf("Cache Miss Rate : %0.1f%%\n", ((float)d_cache.misses / (float)(d_cache.hits + d_cache.misses))*100);
+    printf("Cache Hits:    %d\n", dir_cache.hits);
+    printf("Cache Misses:  %d\n", dir_cache.misses);
+    printf("Cache Hit Rate : %0.1f%%\n", ((float)dir_cache.hits / (float)(dir_cache.hits + dir_cache.misses))*100);
+    printf("Cache Miss Rate : %0.1f%%\n", ((float)dir_cache.misses / (float)(dir_cache.hits + dir_cache.misses))*100);
     printf("\n");
     fclose(fp);
 }
