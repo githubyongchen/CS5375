@@ -280,10 +280,10 @@ void performNwayAssociativeMappingforPart1()
     printf("===========XXXX EXECUTION ENDED XXXX ==========\n");
 
 
-        if(i<3)
-        printf("Select 1 to continue the test cases, any other to exit: 1");
+        if(i==3 && j==8)
+        printf("Select 1 to continue the test cases, any other to exit: 0\n\n");
         else
-        printf("Select 1 to continue the test cases, any other to exit: 0");
+        printf("Select 1 to continue the test cases, any other to exit: 1\n\n");
         if(j==1)
         j=2;
         else if(j==2)
@@ -403,9 +403,9 @@ void performNwayAssociativeMappingforPart2()
 
 
         if(i==3 && j==8)
-        printf("Select 1 to continue the test cases, any other to exit: 0\n");
+        printf("Select 1 to continue the test cases, any other to exit: 0\n\n");
         else
-        printf("Select 1 to continue the test cases, any other to exit: 1\n");
+        printf("Select 1 to continue the test cases, any other to exit: 1\n\n");
         if(j==1)
         j=2;
         else if(j==2)
