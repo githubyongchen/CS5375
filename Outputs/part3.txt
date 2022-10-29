@@ -1,0 +1,81 @@
+login-20-25:/CS5375$ clear
+login-20-25:/CS5375$ part3.c -o part3 -lm
+-bash: part3.c: command not found
+login-20-25:/CS5375$ gcc part3.c -o part3 -lm
+login-20-25:/CS5375$ ./part3 direct ./trace_for_students/trace.hpcg
+
+==================================
+Cache type:     l1
+==================================
+Cache Hits:    1317655
+Cache Misses:  182345
+Cache Hit Rate : 87.843666077%
+Cache Miss Rate : 12.156332970%
+
+
+==================================
+Cache type:     l2
+==================================
+Cache Hits:    1327929
+Cache Misses:  172071
+Cache Hit Rate : 88.528594971%
+Cache Miss Rate : 11.471399307%
+
+login-20-25:/CS5375$ ./part3 direct ./trace_for_students/trace.stream
+
+==================================
+Cache type:     l1
+==================================
+Cache Hits:    1070061
+Cache Misses:  2163994
+Cache Hit Rate : 33.087287903%
+Cache Miss Rate : 66.912719727%
+
+
+==================================
+Cache type:     l2
+==================================
+Cache Hits:    1077514
+Cache Misses:  2156541
+Cache Hit Rate : 33.317737579%
+Cache Miss Rate : 66.682258606%
+
+login-20-25:/CS5375$ ./part3 direct ./trace_for_students/trace.stream_10
+
+==================================
+Cache type:     l1
+==================================
+Cache Hits:    0
+Cache Misses:  10
+Cache Hit Rate : 0.000000000%
+Cache Miss Rate : 100.000000000%
+
+
+==================================
+Cache type:     l2
+==================================
+Cache Hits:    0
+Cache Misses:  10
+Cache Hit Rate : 0.000000000%
+Cache Miss Rate : 100.000000000%
+
+login-20-25:/CS5375$ ./part3 direct ./trace_for_students/trace.stream_20
+
+==================================
+Cache type:     l1
+==================================
+Cache Hits:    4
+Cache Misses:  16
+Cache Hit Rate : 20.000000000%
+Cache Miss Rate : 80.000000000%
+
+
+==================================
+Cache type:     l2
+==================================
+Cache Hits:    4
+Cache Misses:  16
+Cache Hit Rate : 20.000000000%
+Cache Miss Rate : 80.000000000%
+
+login-20-25:/CS5375$
