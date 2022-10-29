@@ -30,41 +30,41 @@ int main(int argc, char *argv[])
 #endif
 
     char* trace_file_name = argv[2];
-    struct direct_mapped_cache d_cache;
+    struct direct_mapped_cache dir_cache;
     char mem_request[20];
     uint64_t address;
     FILE *fp;
 
 
-    /* Initialization */
+    /* variable_set_up */
     for (int i=0; i<NUM_BLOCKS; i++) {
-        d_cache.valid_field[i] = 0;
-        d_cache.dirty_field[i] = 0;
-        d_cache.tag_field[i] = 0;
+        dir_cache.valid_field[i] = 0;
+        dir_cache.dirty_field[i] = 0;
+        dir_cache.tag_field[i] = 0;
     }
-    d_cache.hits = 0;
-    d_cache.misses = 0;
+    dir_cache.hits = 0;
+    dir_cache.misses = 0;
 
 
-    /* Opening the memory trace file */
+    /*Memory_trace_file_opening_part*/
     fp = fopen(trace_file_name, "r");
 
     if (strncmp(argv[1], "direct", 6)==0) { 
-        /* Simulating direct-mapped cache */
-        /* Read the memory request address and access the cache */
+        /* Direct-mapped cache simulation */
+        /*Access the cache by reading the memory request */
         while (fgets(mem_request, 20, fp)!= NULL) {
             address = convert_address(mem_request);
-            direct_mapped_cache_access(&d_cache, address);
+            direct_mapped_cache_access(&dir_cache, address);
          //   printf("Looping");
         }
-        /*Print out the results*/
+        /*Printing out the results*/
         printf("\n==================================\n");
-        printf("Cache type:    Direct-Mapped Cache\n");
+        printf("The Cache type:    Direct-Mapped Cache\n");
         printf("*************************************\n");
-        printf("Cache Hits:    %d\n", d_cache.hits);
-        printf("Cache Misses:  %d\n", d_cache.misses);
-        printf("Cache Hit Rate:    %f%%\n", ((float)d_cache.hits / ((float)d_cache.hits + (float)d_cache.misses)) *100);
-        printf("Cache Miss Rate:    %f%%\n", ((float)d_cache.misses / ((float)d_cache.hits + (float)d_cache.misses))*100);
+        printf("Total_Cache_Hits:    %d\n", dir_cache.hits);
+        printf("Total_Cache_Misses:  %d\n", dir_cache.misses);
+        printf("Total_Cache_Hit-Rate:    %f%%\n", ((float)dir_cache.hits / ((float)dir_cache.hits + (float)dir_cache.misses)) *100);
+        printf("Total_Miss-Rate:    %f%%\n", ((float)dir_cache.misses / ((float)dir_cache.hits + (float)dir_cache.misses))*100);
         
     }
 
@@ -74,42 +74,42 @@ int main(int argc, char *argv[])
 }
 
 uint64_t convert_address(char memory_addr[])
-/* Converts the physical 32-bit address in the trace file to the "binary" \\
+/* Conversion of the physical 32-bit address in the trace file to the  form of "binary" \\
  * (a uint64 that can have bitwise operations on it) */
 {
-    uint64_t binary = 0;
+    uint64_t binary1 = 0;
     int i = 0;
 
     while (memory_addr[i] != '\n') {
         if (memory_addr[i] <= '9' && memory_addr[i] >= '0') {
-            binary = (binary*16) + (memory_addr[i] - '0');
+            binary1 = (binary1*16) + (memory_addr[i] - '0');
         } else {
             if(memory_addr[i] == 'a' || memory_addr[i] == 'A') {
-                binary = (binary*16) + 10;
+                binary1 = (binary1*16) + 10;
             }
             if(memory_addr[i] == 'b' || memory_addr[i] == 'B') {
-                binary = (binary*16) + 11;
+                binary1 = (binary1*16) + 11;
             }
             if(memory_addr[i] == 'c' || memory_addr[i] == 'C') {
-                binary = (binary*16) + 12;
+                binary1 = (binary1*16) + 12;
             }
             if(memory_addr[i] == 'd' || memory_addr[i] == 'D') {
-                binary = (binary*16) + 13;
+                binary1 = (binary1*16) + 13;
             }
             if(memory_addr[i] == 'e' || memory_addr[i] == 'E') {
-                binary = (binary*16) + 14;
+                binary1 = (binary1*16) + 14;
             }
             if(memory_addr[i] == 'f' || memory_addr[i] == 'F') {
-                binary = (binary*16) + 15;
+                binary1 = (binary*16) + 15;
             }
         }
         i++;
     }
 
 #ifdef DBG
-    printf("%s converted to %llu\n", memory_addr, binary);
+    printf("%s converted to %llu\n", memory_addr, binary1);
 #endif
-    return binary;
+    return binary1;
 }
 
 void direct_mapped_cache_access(struct direct_mapped_cache *cache, uint64_t address)
@@ -119,7 +119,7 @@ void direct_mapped_cache_access(struct direct_mapped_cache *cache, uint64_t addr
     uint64_t tag = block_addr >> (unsigned)log2(NUM_BLOCKS);
 
 #ifdef DBG
-    printf("Memory address: %llu, Block address: %llu, Index: %llu, Tag: %llu ", address, block_addr, index, tag);
+    printf("The Memory address: %llu, The Block address: %llu, Index is: %llu, Tag is: %llu ", address, block_addr, index, tag);
 #endif
 
     if (cache->valid_field[index] && cache->tag_field[index] == tag) { /* Cache hit */
