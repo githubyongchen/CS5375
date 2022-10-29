@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
         /*Print out the results*/
         printf("\n==================================\n");
         printf("Cache type:    Direct-Mapped Cache\n");
-        printf("==================================\n");
+        printf("*************************************\n");
         printf("Cache Hits:    %d\n", d_cache.hits);
         printf("Cache Misses:  %d\n", d_cache.misses);
         printf("Cache Hit Rate:    %f%%\n", ((float)d_cache.hits / ((float)d_cache.hits + (float)d_cache.misses)) *100);
