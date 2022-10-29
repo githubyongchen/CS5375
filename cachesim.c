@@ -100,7 +100,7 @@ uint64_t convert_address(char memory_addr[])
                 binary1 = (binary1*16) + 14;
             }
             if(memory_addr[i] == 'f' || memory_addr[i] == 'F') {
-                binary1 = (binary*16) + 15;
+                binary1 = (binary1*16) + 15;
             }
         }
         i++;
