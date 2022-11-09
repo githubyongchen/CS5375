@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "cachesim.h": "c",
+        "cstdlib": "c",
+        "math.h": "c"
+    }
+}

@@ -1,0 +1,38 @@
+login-20-26:/CS5375$ gcc cachesim.c -o cachesim
+login-20-26:/CS5375$ ./cachesim direct ./trace_for_students/trace.hpcg
+
+==================================
+Cache type:    Direct-Mapped Cache
+==================================
+Cache Hits:    1301327
+Cache Misses:  198673
+Cache Hit Rate:    86.755135%
+Cache Miss Rate:    13.244867%
+login-20-26:/CS5375$ ./cachesim direct ./trace_for_students/trace.stream
+
+==================================
+Cache type:    Direct-Mapped Cache
+==================================
+Cache Hits:    1059918
+Cache Misses:  2174137
+Cache Hit Rate:    32.773651%
+Cache Miss Rate:    67.226341%
+login-20-26:/CS5375$ ./cachesim direct ./trace_for_students/trace.stream_10
+
+==================================
+Cache type:    Direct-Mapped Cache
+==================================
+Cache Hits:    0
+Cache Misses:  10
+Cache Hit Rate:    0.000000%
+Cache Miss Rate:    100.000000%
+login-20-26:/CS5375$ ./cachesim direct ./trace_for_students/trace.stream_20
+
+==================================
+Cache type:    Direct-Mapped Cache
+==================================
+Cache Hits:    4
+Cache Misses:  16
+Cache Hit Rate:    20.000000%
+Cache Miss Rate:    80.000000%
+login-20-26:/CS5375$

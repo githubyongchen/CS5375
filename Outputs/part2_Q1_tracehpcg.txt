@@ -1,0 +1,159 @@
+login-20-25:/CS5375$ ./part2 direct ./trace_for_students/trace.hpcg
+Select 1 to  execute Question 1 or 2 to Question 2 :1
+For execution over 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 1
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 1
+
+====== STARTING EXECUTION FOR 16 BYTES cache line size ==========
+==================================
+Cache Hits:    1288305
+Cache Misses:  211695
+Cache Hit Rate : 85.887001038%
+Cache Miss Rate : 14.112999916%
+
+===========XXXX EXECUTION ENDED XXXX ==========
+Select 1 to continue the test cases, any other to exit: 1
+
+For execution over 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 1
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 2
+
+====== STARTING EXECUTION FOR 16 BYTES cache line size ==========
+==================================
+Cache Hits:    1271623
+Cache Misses:  228377
+Cache Hit Rate : 84.774864197%
+Cache Miss Rate : 15.225132942%
+
+===========XXXX EXECUTION ENDED XXXX ==========
+Select 1 to continue the test cases, any other to exit: 1
+
+For execution over 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 1
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 4
+
+====== STARTING EXECUTION FOR 16 BYTES cache line size ==========
+==================================
+Cache Hits:    1277153
+Cache Misses:  222847
+Cache Hit Rate : 85.143531799%
+Cache Miss Rate : 14.856466293%
+
+===========XXXX EXECUTION ENDED XXXX ==========
+Select 1 to continue the test cases, any other to exit: 1
+
+For execution over 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 1
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 8
+
+====== STARTING EXECUTION FOR 16 BYTES cache line size ==========
+==================================
+Cache Hits:    1278586
+Cache Misses:  221414
+Cache Hit Rate : 85.239067078%
+Cache Miss Rate : 14.760933876%
+
+===========XXXX EXECUTION ENDED XXXX ==========
+Select 1 to continue the test cases, any other to exit: 1
+
+For execution over 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 2
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 1
+
+====== STARTING EXECUTION FOR 32 BYTES cache line size ==========
+==================================
+Cache Hits:    1299112
+Cache Misses:  200888
+Cache Hit Rate : 86.607467651%
+Cache Miss Rate : 13.392533302%
+
+===========XXXX EXECUTION ENDED XXXX ==========
+Select 1 to continue the test cases, any other to exit: 1
+
+For execution over 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 2
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 2
+
+====== STARTING EXECUTION FOR 32 BYTES cache line size ==========
+==================================
+Cache Hits:    1281291
+Cache Misses:  218709
+Cache Hit Rate : 85.419395447%
+Cache Miss Rate : 14.580599785%
+
+===========XXXX EXECUTION ENDED XXXX ==========
+Select 1 to continue the test cases, any other to exit: 1
+
+For execution over 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 2
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 4
+
+====== STARTING EXECUTION FOR 32 BYTES cache line size ==========
+==================================
+Cache Hits:    1287229
+Cache Misses:  212771
+Cache Hit Rate : 85.815269470%
+Cache Miss Rate : 14.184732437%
+
+===========XXXX EXECUTION ENDED XXXX ==========
+Select 1 to continue the test cases, any other to exit: 1
+
+For execution over 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 2
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 8
+
+====== STARTING EXECUTION FOR 32 BYTES cache line size ==========
+==================================
+Cache Hits:    1288697
+Cache Misses:  211303
+Cache Hit Rate : 85.913131714%
+Cache Miss Rate : 14.086866379%
+
+===========XXXX EXECUTION ENDED XXXX ==========
+Select 1 to continue the test cases, any other to exit: 1
+
+For execution over 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 3
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 1
+
+====== STARTING EXECUTION FOR 128 BYTES cache line size ==========
+==================================
+Cache Hits:    1429196
+Cache Misses:  70804
+Cache Hit Rate : 95.279731750%
+Cache Miss Rate : 4.720266342%
+
+===========XXXX EXECUTION ENDED XXXX ==========
+Select 1 to continue the test cases, any other to exit: 1
+
+For execution over 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 3
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 2
+
+====== STARTING EXECUTION FOR 128 BYTES cache line size ==========
+==================================
+Cache Hits:    1341934
+Cache Misses:  158066
+Cache Hit Rate : 89.462265015%
+Cache Miss Rate : 10.537733078%
+
+===========XXXX EXECUTION ENDED XXXX ==========
+Select 1 to continue the test cases, any other to exit: 1
+
+For execution over 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 3
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 4
+
+====== STARTING EXECUTION FOR 128 BYTES cache line size ==========
+==================================
+Cache Hits:    1348062
+Cache Misses:  151938
+Cache Hit Rate : 89.870796204%
+Cache Miss Rate : 10.129199982%
+
+===========XXXX EXECUTION ENDED XXXX ==========
+Select 1 to continue the test cases, any other to exit: 1
+
+For execution over 32KB Cache size, Click 1 for 16 bytes cache line size, 2 for 32 bytes cache line size, 3 for 128 bytes cache line size : 3
+Select 1 for fully associative execution, 2 for 2 way execution, 4 for 4 way execution, 8 for 8 way execution: 8
+
+====== STARTING EXECUTION FOR 128 BYTES cache line size ==========
+==================================
+Cache Hits:    1344947
+Cache Misses:  155053
+Cache Hit Rate : 89.663139343%
+Cache Miss Rate : 10.336867332%
+
+===========XXXX EXECUTION ENDED XXXX ==========
+Select 1 to continue the test cases, any other to exit: 0
+
+login-20-25:/CS5375$
